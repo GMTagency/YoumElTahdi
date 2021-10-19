@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "121501942373",
+    "project_id": "youm-el-tahdi",
+    "storage_bucket": "youm-el-tahdi.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:121501942373:android:4e2af9799e6d353528fc8c",
+        "android_client_info": {
+          "package_name": "com.example.youmel_tahdi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "121501942373-v07f37bvk4587a4c2v4ot7gm47v8ubg9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.youmel_tahdi",
+            "certificate_hash": "f5dde7f3681d202ddf8d1d2b5810ad4199f21fbb"
+          }
+        },
+        {
+          "client_id": "121501942373-9ft42ks14u14r76flu8a7t2hv04on8sa.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBccYkhQICXzosg-tzQTa9-BhdCsoQWX2A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "121501942373-9ft42ks14u14r76flu8a7t2hv04on8sa.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

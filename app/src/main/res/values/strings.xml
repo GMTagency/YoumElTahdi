@@ -1,0 +1,5 @@
+<resources>
+    <string name="app_name">Youm El-Tahdi</string>
+    <string name="facebook_app_id">401687651587044</string>
+    <string name="fb_login_protocol_scheme">fb401687651587044</string>
+</resources>
