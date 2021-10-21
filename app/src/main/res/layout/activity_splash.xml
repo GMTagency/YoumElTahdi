@@ -1,49 +1,61 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<android.support.constraint.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#777c8c"
+    android:background="#f5f5f5"
     tools:context=".splashActivity">
 
     <ImageView
         android:id="@+id/The_Flag"
-        android:layout_width="200dp"
-        android:layout_height="200dp"
-        android:layout_marginTop="150dp"
-        android:src="@drawable/flag_map_of_egypt"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/splash_flag"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/The_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/logo_splash"
+        android:paddingHorizontal="50dp"
+        android:layout_paddingStart="500dp"
+        android:layout_paddingEnd="500dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ProgressBar
+        android:id="@+id/circular_determinative_pb"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:indeterminateOnly="false"
+        android:progressDrawable="@drawable/pb_circular_determinative"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <TextView
-        android:id="@+id/Youm_eltahdi"
+        android:id="@+id/progress_tv"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="يوم التحدي"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        android:textStyle="normal|bold"
-        android:layout_marginTop="40dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/The_Flag" />
+        android:textColor="@android:color/black"
+        app:layout_constraintBottom_toBottomOf="@+id/circular_determinative_pb"
+        app:layout_constraintEnd_toEndOf="@+id/circular_determinative_pb"
+        app:layout_constraintStart_toStartOf="@+id/circular_determinative_pb"
+        app:layout_constraintTop_toTopOf="@+id/circular_determinative_pb"
+        tools:text="50%" />
 
-    <TextView
-        android:id="@+id/The_Date"
-        android:layout_width="wrap_content"
+    <ImageView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="0dp"
-        android:layout_marginTop="40dp"
-        android:text="3/12"
-        android:textColor="@color/white"
-        android:textSize="34sp"
-        android:textStyle="normal|bold"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@drawable/splash_bottom_image_egypt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/Youm_eltahdi"
-        app:layout_constraintVertical_bias="0.05" />
+        app:layout_constraintBottom_toBottomOf="parent"/>
 
 </android.support.constraint.ConstraintLayout>
