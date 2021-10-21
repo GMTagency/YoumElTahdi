@@ -1,14 +1,23 @@
 package com.example.youmel_tahdi
 
 import android.content.Intent
-import android.support.v7.app.AppCompatActivity
+import android.graphics.PorterDuff
 import android.os.Bundle
 import android.os.Handler
+import androidx.appcompat.app.AppCompatActivity
+import android.widget.ProgressBar
 
-class splashActivity : AppCompatActivity() {
+
+
+
+class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_splash)
+        val spinner = ProgressBar(this, null, android.R.attr.progressBarStyle)
+
+        spinner.indeterminateDrawable.setColorFilter(-0x10000, PorterDuff.Mode.MULTIPLY)
+
         StartNewActivity()    }
 
     private fun StartNewActivity() {

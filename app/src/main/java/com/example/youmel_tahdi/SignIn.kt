@@ -1,8 +1,8 @@
 package com.example.youmel_tahdi
 
-import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.EditText
+import androidx.appcompat.app.AppCompatActivity
 
 class SignIn : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {

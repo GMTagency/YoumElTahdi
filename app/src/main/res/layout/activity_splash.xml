@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#f5f5f5"
-    tools:context=".splashActivity">
+    tools:context=".SplashActivity">
 
     <ImageView
         android:id="@+id/The_Flag"
         android:layout_width="100dp"
-        android:layout_height="100dp"
-        android:src="@drawable/splash_flag"
+        android:layout_height="0dp"
+        android:src="@drawable/egyptflag"
+
+        android:adjustViewBounds="true"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -20,42 +21,31 @@
         android:id="@+id/The_logo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingHorizontal="80dp"
         android:src="@drawable/logo_splash"
-        android:paddingHorizontal="50dp"
-        android:layout_paddingStart="500dp"
-        android:layout_paddingEnd="500dp"
+        android:adjustViewBounds="true"
+        android:layout_marginTop="100dp"
+        app:layout_constraintTop_toBottomOf="@id/The_Flag"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"/>
 
     <ProgressBar
-        android:id="@+id/circular_determinative_pb"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:indeterminateOnly="false"
-        android:progressDrawable="@drawable/pb_circular_determinative"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:id="@+id/loader"
+        android:layout_width="75dp"
+        android:layout_height="75dp"
+        android:layout_marginTop="50dp"
+        android:indeterminate="true"
+        android:indeterminateTintMode="src_atop"
+        android:indeterminateTint="#263269"
+        app:layout_constraintTop_toBottomOf="@id/The_logo"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/progress_tv"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textColor="@android:color/black"
-        app:layout_constraintBottom_toBottomOf="@+id/circular_determinative_pb"
-        app:layout_constraintEnd_toEndOf="@+id/circular_determinative_pb"
-        app:layout_constraintStart_toStartOf="@+id/circular_determinative_pb"
-        app:layout_constraintTop_toTopOf="@+id/circular_determinative_pb"
-        tools:text="50%" />
+        app:layout_constraintEnd_toEndOf="parent"/>
 
     <ImageView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="0dp"
+        android:adjustViewBounds="true"
         android:src="@drawable/splash_bottom_image_egypt"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toBottomOf="parent"/>
 
-</android.support.constraint.ConstraintLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
