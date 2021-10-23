@@ -4,6 +4,10 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
+import com.example.gradproject.OnlineDataBase.DataHolder
+import com.example.gradproject.OnlineDataBase.Models.User
+import com.example.gradproject.OnlineDataBase.UsersDao
+import com.example.youmel_tahdi.base.BaseActivity
 import com.facebook.AccessToken
 import com.facebook.CallbackManager
 import com.facebook.FacebookCallback
@@ -15,8 +19,12 @@ import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
+import com.facebook.login.LoginManager
+import com.google.android.gms.tasks.OnCompleteListener
+import java.util.*
 
-class FaceBookAuthActivity : MainActivity() {
+
+class FaceBookAuthActivity : BaseActivity() {
 
     private lateinit var callbackManager: CallbackManager
     private lateinit var buttonFacebookLogin: LoginButton
@@ -24,51 +32,59 @@ class FaceBookAuthActivity : MainActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_face_book_auth)
 
         // ...
         // Initialize Firebase Auth
         auth = Firebase.auth
 
-        // Initialize Facebook Login button
         callbackManager = CallbackManager.Factory.create()
 
-        buttonFacebookLogin.setReadPermissions("email", "public_profile")
-        buttonFacebookLogin.registerCallback(callbackManager, object : FacebookCallback<LoginResult> {
-            override fun onSuccess(loginResult: LoginResult) {
-                Log.d(TAG, "facebook:onSuccess:$loginResult")
-                handleFacebookAccessToken(loginResult.accessToken)
-            }
+        LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile"));
+        LoginManager.getInstance().registerCallback(callbackManager,
+            object : FacebookCallback<LoginResult?> {
+                override fun onSuccess(loginResult: LoginResult?) {
+                    handleFacebookAccessToken(loginResult!!.accessToken)
+                }
 
-            override fun onCancel() {
-                Log.d(TAG, "facebook:onCancel")
-            }
+                override fun onCancel() {
+                    // App code
+                }
 
-            override fun onError(error: FacebookException) {
-                Log.d(TAG, "facebook:onError", error)
-            }
-        })
-
+                override fun onError(exception: FacebookException) {
+                    // App code
+                }
+            })
     }
 
 
     private fun handleFacebookAccessToken(token: AccessToken) {
-        Log.d(TAG, "handleFacebookAccessToken:$token")
-
         val credential = FacebookAuthProvider.getCredential(token.token)
         auth.signInWithCredential(credential)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
-                    // Sign in success, update UI with the signed-in user's information
-                    Log.d(TAG, "signInWithCredential:success")
-                    val user = auth.currentUser
-                    updateUI(user)
+                    UsersDao.getUser(
+                        userId =auth.currentUser?.uid?:"",
+                        onCompleteListener = OnCompleteListener {
+                            if (it.isSuccessful){
+                                val dataBaseUser=it.result?.toObject(User::class.java)
+                                DataHolder.dataBaseUser=dataBaseUser
+                                DataHolder.authUser=auth.currentUser
+                                // Sign in success, update UI with the signed-in user's information
+                                val intent = Intent(this, NotificationActivity::class.java)
+                                startActivity(intent)
+                            }
+                            else{    Toast.makeText(
+                                activity, "get data failed.",
+                                Toast.LENGTH_SHORT
+                            ).show()
+                            }
+                        }
+                    )
                 } else {
                     // If sign in fails, display a message to the user.
                     Log.w(TAG, "signInWithCredential:failure", task.exception)
                     Toast.makeText(baseContext, "Authentication failed.",
                         Toast.LENGTH_SHORT).show()
-                    updateUI(null)
                 }
             }
     }
@@ -80,16 +96,11 @@ class FaceBookAuthActivity : MainActivity() {
         callbackManager.onActivityResult(requestCode, resultCode, data)
     }
 
+
     public override fun onStart() {
         super.onStart()
-        // Check if user is signed in (non-null) and update UI accordingly.
-        val currentUser = auth.currentUser
-        updateUI(currentUser)
     }
 
-    private fun updateUI(user: FirebaseUser?) {
-
-    }
 
     companion object {
         private const val TAG = "FacebookLogin"

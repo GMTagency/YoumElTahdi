@@ -12,17 +12,24 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YoumElTahdi">
         <activity
-            android:name=".FaceBookAuthActivity"
+            android:name=".NotificationActivity"
             android:exported="false" />
+        <activity
+            android:name=".FaceBookAuthActivity"
+            android:exported="false"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".FormActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".SignUp"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/NoActionBar" />
         <activity
             android:name=".SplashActivity"
-            android:exported="true">
+            android:exported="true"
+            android:theme="@style/NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -31,7 +38,8 @@
         </activity>
         <activity
             android:name=".MainActivity"
-            android:exported="true" />
+            android:exported="true"
+            android:theme="@style/NoActionBar" />
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
