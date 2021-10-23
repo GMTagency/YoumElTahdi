@@ -32,7 +32,6 @@ open class MainActivity : BaseActivity() {
     private lateinit var phone : String
     private lateinit var pass : String
 
-    private lateinit var binding: ActivityMainBinding
     private lateinit var googleSignInClient: GoogleSignInClient
 
     private companion object{
@@ -76,6 +75,16 @@ open class MainActivity : BaseActivity() {
 
         sign_in_google.setOnClickListener {
             signInGoogle()
+        }
+
+        Reset_password.setOnClickListener {
+            val intent = Intent(this, ResetPassword::class.java)
+            startActivity(intent)
+        }
+
+        signup_button.setOnClickListener {
+            val intent = Intent(this, SignUp::class.java)
+            startActivity(intent)
         }
     }
 
@@ -135,7 +144,7 @@ open class MainActivity : BaseActivity() {
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
         if (requestCode == RC_SIGN_IN){
-            Log.d(TAG, "onActivityResult: Google SignIn Intent result")
+            Log.d(TAG, "onActivityResult: Google ResetPassword Intent result")
             val accountTask = GoogleSignIn.getSignedInAccountFromIntent(data)
             try {
                 //google signin successfully, now auth with firebase

@@ -35,22 +35,8 @@ class SignUp : AppCompatActivity() {
 
         auth = Firebase.auth
 
-        emailET = findViewById(R.id.First_name_editText)
-        passwordET =findViewById(R.id.password_editText)
-        var createEmail : Button = findViewById(R.id.register_button)
-        var createFacebook : Button = findViewById(R.id.register_facebook)
-
         email= emailET?.text.toString().trim { it <= ' ' }
         password= passwordET?.text.toString().trim { it <= ' ' }
-
-        createEmail.setOnClickListener {
-            createAccount(email,password)
-        }
-
-        createFacebook.setOnClickListener {
-            val intent = Intent(this, FaceBookAuthActivity::class.java)
-            startActivity(intent)
-        }
     }
 
     private fun createAccount(email: String, password: String) {

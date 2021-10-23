@@ -2,4 +2,24 @@
     <string name="app_name">Youm El-Tahdi</string>
     <string name="facebook_app_id">401687651587044</string>
     <string name="fb_login_protocol_scheme">fb401687651587044</string>
+
+    <string name="country_prompt">Choose a country</string>
+
+
+    <string-array name="mohafza_arrays">
+        <item>القاهرة</item>
+        <item>الأسكندرية</item>
+        <item>الجيزة</item>
+        <item>الفيوم</item>
+        <item>الإسماعلية</item>
+        <item>كفر الشيخ</item>
+        <item>سوهاج</item>
+        <item>أسيوط</item>
+    </string-array>
+
+    <string-array name="markz_arrays">
+        <item>مركز 1</item>
+        <item>مركز 2</item>
+        <item>مركز 3</item>
+    </string-array>
 </resources>
