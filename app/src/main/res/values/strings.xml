@@ -7,6 +7,7 @@
 
 
     <string-array name="mohafza_arrays">
+        <item>المحافظة*</item>
         <item>القاهرة</item>
         <item>الأسكندرية</item>
         <item>الجيزة</item>
@@ -18,6 +19,7 @@
     </string-array>
 
     <string-array name="markz_arrays">
+        <item>المركز*</item>
         <item>مركز 1</item>
         <item>مركز 2</item>
         <item>مركز 3</item>

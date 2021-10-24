@@ -14,26 +14,17 @@ class UsersDao {
                 .addOnCompleteListener(onCompleteListener)
         }
 
-        fun updateBankData(user:User,onCompleteListener: OnCompleteListener<Void>) {
+        fun update(user:User,onCompleteListener: OnCompleteListener<Void>) {
             val userRef = DataBase.getUsers()
                 .document(DataHolder.dataBaseUser?.id?:"")
 
-            userRef.update("swiftCode",user.swiftCode?:"",
-                "bankName",user.bankName?:"",
-            "accountHolderName",user.accountHolderName?:"",
-            "accountNumber",user.accountNumber?:"")
+            userRef.update("swiftCode",user.birthDay?:"",
+                "bankName",user.city?:"",
+            "accountHolderName",user.eMail?:"",
+            "accountNumber",user.fullAddress?:"")
                 .addOnCompleteListener(onCompleteListener)
         }
 
-        fun updatePersonalData(user:User,onCompleteListener: OnCompleteListener<Void>) {
-            val userRef = DataBase.getUsers()
-                .document(DataHolder.dataBaseUser?.id?:"")
-
-            userRef.update("idImage",user.idImage?:"",
-            "drivingLicenseImage",user.drivingLicenseImage?:"",
-            "passportImage",user.passportImage?:"")
-                .addOnCompleteListener(onCompleteListener)
-        }
 
         fun addUploadRecordToDb(uri: String) {
             val data = HashMap<String, Any>()

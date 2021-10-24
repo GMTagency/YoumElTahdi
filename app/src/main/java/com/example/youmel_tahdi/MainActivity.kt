@@ -108,6 +108,7 @@ open class MainActivity : BaseActivity() {
                                 DataHolder.authUser=auth.currentUser
                                 // Sign in success, update UI with the signed-in user's information
                                 val intent = Intent(this, NotificationActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent)
                                 Log.d(TAG, "signInWithEmail:success")
                             }
@@ -120,6 +121,7 @@ open class MainActivity : BaseActivity() {
                     )
                     // Sign in success, update UI with the signed-in user's information
                     val intent = Intent(activity, NotificationActivity::class.java)
+                    intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(intent)
                 } else {
                     // If sign in fails, display a message to the user.
@@ -170,7 +172,8 @@ open class MainActivity : BaseActivity() {
                             DataHolder.dataBaseUser=dataBaseUser
                             DataHolder.authUser=auth.currentUser
                             // Sign in success, update UI with the signed-in user's information
-                            val intent = Intent(this, NotificationActivity::class.java)
+                            val intent = Intent(this, SaveDetailsActivity::class.java)
+                            intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                             startActivity(intent)
                             Log.d(TAG, "signInWithEmail:success")
                         }

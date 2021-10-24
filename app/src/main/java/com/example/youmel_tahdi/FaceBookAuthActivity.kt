@@ -27,7 +27,6 @@ import java.util.*
 class FaceBookAuthActivity : BaseActivity() {
 
     private lateinit var callbackManager: CallbackManager
-    private lateinit var buttonFacebookLogin: LoginButton
     private lateinit var auth: FirebaseAuth
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -39,7 +38,9 @@ class FaceBookAuthActivity : BaseActivity() {
 
         callbackManager = CallbackManager.Factory.create()
 
+
         LoginManager.getInstance().logInWithReadPermissions(this, listOf("public_profile"));
+        LoginManager.getInstance().logInWithReadPermissions(this, listOf("email"));
         LoginManager.getInstance().registerCallback(callbackManager,
             object : FacebookCallback<LoginResult?> {
                 override fun onSuccess(loginResult: LoginResult?) {
@@ -47,11 +48,13 @@ class FaceBookAuthActivity : BaseActivity() {
                 }
 
                 override fun onCancel() {
-                    // App code
+                    Toast.makeText(baseContext, "تم الألغاء الرجاء المحاولة بطريقة أخري.",
+                        Toast.LENGTH_SHORT).show()
                 }
 
                 override fun onError(exception: FacebookException) {
-                    // App code
+                    Toast.makeText(baseContext, "حدث خطأ. الرجاء المحاولة مرة أخري.",
+                        Toast.LENGTH_SHORT).show()
                 }
             })
     }
@@ -70,8 +73,10 @@ class FaceBookAuthActivity : BaseActivity() {
                                 DataHolder.dataBaseUser=dataBaseUser
                                 DataHolder.authUser=auth.currentUser
                                 // Sign in success, update UI with the signed-in user's information
-                                val intent = Intent(this, NotificationActivity::class.java)
+                                val intent = Intent(this, SaveDetailsActivity::class.java)
+                                intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
                                 startActivity(intent)
+
                             }
                             else{    Toast.makeText(
                                 activity, "get data failed.",

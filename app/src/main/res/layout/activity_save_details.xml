@@ -37,7 +37,7 @@
                 android:id="@+id/signup_form"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
+                android:paddingBottom="25dp"
                 android:background="@drawable/egypt_flag_tall">
 
                 <TextView
@@ -45,7 +45,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:fontFamily="@font/tajawal_extra_bold"
-                    android:text="إنشاء حساب جديد"
+                    android:text="المعلومات الخاصة بك"
                     android:textColor="#263269"
                     android:textSize="26sp"
                     android:layout_gravity="center"
@@ -55,13 +55,14 @@
                     app:layout_constraintTop_toTopOf="@id/signup_form" />
 
                 <ImageView
-                android:id="@+id/user_image"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:src="@drawable/imageuser"
-                app:layout_constraintEnd_toEndOf="parent"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toBottomOf="@id/Reset_password" />
+                    android:id="@+id/user_image"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:src="@drawable/imageuser"
+                    android:layout_marginTop="10dp"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/Reset_password" />
 
                 <EditText
                     android:id="@+id/full_name"
@@ -177,7 +178,6 @@
                     android:layout_marginTop="10dp"
                     android:background="@drawable/edit_text_border"
                     android:drawableStart="@drawable/mail"
-                    android:gravity="center_vertical"
                     android:hint="الوظيفة *"
                     android:paddingStart="15dp"
                     android:paddingEnd="15dp"
@@ -204,6 +204,15 @@
                     android:textDirection="rtl"
                     app:layout_constraintTop_toBottomOf="@id/job_field" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/globe"
+                    app:layout_constraintBottom_toBottomOf="@id/mohafza_field"
+                    app:layout_constraintStart_toStartOf="@id/mohafza_field"
+                    app:layout_constraintTop_toTopOf="@id/mohafza_field" />
+
                 <Spinner
                     android:id="@+id/markaz_field"
                     android:layout_width="match_parent"
@@ -221,6 +230,15 @@
                     android:textSize="20sp"
                     app:layout_constraintTop_toBottomOf="@id/mohafza_field" />
 
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="15dp"
+                    android:src="@drawable/location"
+                    app:layout_constraintBottom_toBottomOf="@id/markaz_field"
+                    app:layout_constraintStart_toStartOf="@id/markaz_field"
+                    app:layout_constraintTop_toTopOf="@id/markaz_field" />
+
                 <EditText
                     android:id="@+id/password_field_signup"
                     android:layout_width="match_parent"
@@ -235,13 +253,12 @@
                     android:paddingEnd="15dp"
                     android:textColorHint="#263269"
                     android:textSize="20sp"
+                    android:textDirection="Rtl"
                     android:inputType="textPassword"
-                    android:textDirection="rtl"
                     app:layout_constraintTop_toBottomOf="@id/markaz_field" />
 
-
                 <Button
-                    android:id="@+id/signup_button_signup"
+                    android:id="@+id/save_details_button"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginHorizontal="50dp"
@@ -251,61 +268,13 @@
                     android:drawableStart="@drawable/edit"
                     android:fontFamily="@font/tajawal_medium"
                     android:paddingStart="65dp"
-                    android:text="إنشاء الحساب"
+                    android:text="حفظ البيانات"
                     android:textColor="#fff"
                     android:textSize="20sp"
-                    app:layout_constraintTop_toBottomOf="@id/password_field_signup" />
+                    app:layout_constraintTop_toBottomOf="@id/password_field_signup"
+                    app:layout_constraintStart_toStartOf="@id/signup_form"
+                    app:layout_constraintEnd_toEndOf="@id/signup_form"/>
 
-                <TextView
-                    android:id="@+id/or_signup"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginVertical="15dp"
-                    android:fontFamily="@font/tajawal_medium"
-                    android:text="أو"
-                    android:textColor="#263269"
-                    android:textSize="24sp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/signup_button_signup" />
-
-                <Button
-                    android:id="@+id/sign_up_facebook"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="5dp"
-                    android:background="@drawable/button"
-                    android:backgroundTint="#4d69a2"
-                    android:drawableStart="@drawable/facebook"
-                    android:fontFamily="@font/tajawal_medium"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:text=" تسجيل الدخول من الفيس بوك"
-                    android:textAlignment="textStart"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:layout_constraintTop_toBottomOf="@id/or_signup" />
-
-                <Button
-                    android:id="@+id/sign_up_google"
-                    android:layout_width="match_parent"
-                    android:layout_height="50dp"
-                    android:layout_marginHorizontal="50dp"
-                    android:layout_marginTop="5dp"
-                    android:layout_marginBottom="20dp"
-                    android:background="@drawable/button"
-                    android:backgroundTint="#d73d32"
-                    android:drawableStart="@drawable/google_icon"
-                    android:fontFamily="@font/tajawal_medium"
-                    android:paddingStart="15dp"
-                    android:paddingEnd="15dp"
-                    android:text=" تسجيل الدخول من جوجل"
-                    android:textAlignment="textStart"
-                    android:textColor="#fff"
-                    android:textSize="16sp"
-                    app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sign_up_facebook" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
