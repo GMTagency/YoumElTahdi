@@ -21,7 +21,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintBottom_toTopOf="@id/scroll_view_main"/>
 
-
     <ScrollView
         android:id="@+id/scroll_view_main"
         android:layout_width="match_parent"
@@ -257,7 +256,7 @@
                     app:layout_constraintTop_toBottomOf="@id/signup_button_signup" />
 
                 <Button
-                    android:id="@+id/sign_in_facebook"
+                    android:id="@+id/sign_up_facebook"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginHorizontal="50dp"
@@ -275,7 +274,7 @@
                     app:layout_constraintTop_toBottomOf="@id/or_signup" />
 
                 <Button
-                    android:id="@+id/sign_in_google"
+                    android:id="@+id/sign_up_google"
                     android:layout_width="match_parent"
                     android:layout_height="50dp"
                     android:layout_marginHorizontal="50dp"
@@ -292,11 +291,9 @@
                     android:textColor="#fff"
                     android:textSize="16sp"
                     app:layout_constraintBottom_toBottomOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/sign_in_facebook" />
-
+                    app:layout_constraintTop_toBottomOf="@id/sign_up_facebook" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
-
 
         </LinearLayout>
     </ScrollView>

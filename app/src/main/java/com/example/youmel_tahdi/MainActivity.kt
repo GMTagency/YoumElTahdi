@@ -1,6 +1,5 @@
 package com.example.youmel_tahdi
 
-import android.content.ContentValues.TAG
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
@@ -9,7 +8,6 @@ import com.example.gradproject.OnlineDataBase.DataHolder
 import com.example.gradproject.OnlineDataBase.Models.User
 import com.example.gradproject.OnlineDataBase.UsersDao
 import com.example.youmel_tahdi.base.BaseActivity
-import com.example.youmel_tahdi.databinding.ActivityMainBinding
 import com.google.android.gms.auth.api.signin.GoogleSignIn
 import com.google.android.gms.auth.api.signin.GoogleSignInAccount
 import com.google.android.gms.auth.api.signin.GoogleSignInClient
@@ -18,7 +16,6 @@ import com.google.android.gms.common.api.ApiException
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
-import com.google.firebase.auth.GoogleAuthCredential
 import com.google.firebase.auth.GoogleAuthProvider
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.ktx.Firebase
@@ -42,6 +39,9 @@ open class MainActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
+        auth = Firebase.auth
+        mCurrentUser = auth.currentUser
 
         //CONFIGURE GOOGLE SIGN IN
         val googleSignInOptions = GoogleSignInOptions.Builder(GoogleSignInOptions.DEFAULT_SIGN_IN)
@@ -132,8 +132,6 @@ open class MainActivity : BaseActivity() {
 
     public override fun onStart() {
         super.onStart()
-        auth = Firebase.auth
-        mCurrentUser = auth.currentUser
         // Check if user is signed in (non-null) and update UI accordingly.
         if(mCurrentUser != null){
             val intent = Intent(this, NotificationActivity::class.java)
